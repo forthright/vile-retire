@@ -110,7 +110,7 @@ issues = [
       " - https://nodesecurity.io/advisories/48",
     type: "security",
     signature: "retire::uglify-js::2.3.6::" +
-     "https://nodesecurity.io/advisories/48",
+      "https://nodesecurity.io/advisories/48",
     security: {
       package: "uglify-js",
       version: "2.3.6",
@@ -125,7 +125,7 @@ issues = [
       "https://github.com/tmcw/mdast-uglify-bug",
     type: "security",
     signature: "retire::uglify-js::2.2.5::" +
-     "https://github.com/mishoo/UglifyJS2/issues/751",
+      "https://github.com/mishoo/UglifyJS2/issues/751",
     security: {
       package: "uglify-js",
       version: "2.2.5",
