@@ -1,0 +1,41 @@
+vile:
+  ignore:
+    - appveyor.yml
+    - coverage
+    - test/fixtures/**
+    - coffeelint.json
+    - .ackrc
+    - .babelrc
+    - .build
+    - .npmignore
+    - .travis.yml
+    - .vim.custom
+    - node_modules
+    - lib
+    - tags
+    - .test
+    - .ctags
+    - .git
+    - circle.yml
+    - .editorconfig
+    - .eslintrc
+    - .gitignore
+    - .npmrc
+    - tags
+    - vendor
+    - README.md
+    - typings
+    - .vile.yml
+
+depcheck:
+  config:
+    ignore_dev_deps: true
+
+length:
+  config:
+    file: 120
+    line: 80
+
+coverage:
+  config:
+    path: coverage/lcov.info
