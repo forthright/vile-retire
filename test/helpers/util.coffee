@@ -1,16 +1,16 @@
 fs = require "fs"
 mimus = require "mimus"
-Promise = require "bluebird"
+Bluebird = require "bluebird"
 retire_json = require "./../fixtures/retire-json"
 
 setup = (vile) ->
   mimus.stub(fs, "readFileAsync").returns(
-    new Promise((resolve, reject) -> resolve(retire_json)))
+    new Bluebird((resolve, reject) -> resolve(retire_json)))
 
   mimus.stub(fs, "unlinkAsync").returns(
-    new Promise((resolve, reject) -> resolve()))
+    new Bluebird((resolve, reject) -> resolve()))
 
-  vile.spawn.returns new Promise (resolve) -> resolve()
+  vile.spawn.returns new Bluebird (resolve) -> resolve()
 
 # file types, node types. with/without various identifiers and info links
 issues = [

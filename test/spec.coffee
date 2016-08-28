@@ -49,6 +49,7 @@ describe "retire", ->
                               RETIRE_REPORT
                             ]
             done()
+      return
 
     it "reads the report file", (done) ->
       retire
@@ -58,6 +59,7 @@ describe "retire", ->
             fs.readFileAsync.should.have.been
               .calledWith RETIRE_REPORT
             done()
+      return
 
     it "removes the report file", (done) ->
       retire
@@ -67,6 +69,7 @@ describe "retire", ->
             fs.unlinkAsync.should.have.been
               .calledWith RETIRE_REPORT
             done()
+      return
 
     describe "config", ->
       it "converts a boolean long form option", (done) ->
@@ -84,6 +87,7 @@ describe "retire", ->
                                 RETIRE_REPORT
                               ]
               done()
+        return
 
       it "converts a string long form option", (done) ->
         retire
@@ -102,6 +106,7 @@ describe "retire", ->
                                 RETIRE_REPORT
                               ]
               done()
+        return
 
       describe "when converting an ignore property", ->
         it "joins the value as string", (done) ->
@@ -119,3 +124,4 @@ describe "retire", ->
                                 RETIRE_REPORT
                               ]
                 done()
+          return
