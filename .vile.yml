@@ -31,11 +31,6 @@ depcheck:
   config:
     ignore_dev_deps: true
 
-length:
-  config:
-    file: 120
-    line: 80
-
 coverage:
   config:
     path: coverage/lcov.info

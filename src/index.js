@@ -1,6 +1,6 @@
 const _ = require("lodash")
 const fs = require("fs")
-const vile = require("@forthright/vile")
+const vile = require("vile")
 const Bluebird = require("bluebird")
 
 const RETIRE_BIN = "retire"

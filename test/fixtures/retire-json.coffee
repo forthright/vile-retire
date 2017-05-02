@@ -107,7 +107,7 @@ module.exports = JSON.stringify [
         "component": "marked",
         "version": "0.3.5",
         "parent": {
-          "component": "@forthright\/vile",
+          "component": "vile",
           "version": "0.9.11"
         },
         "level": 1,
@@ -140,7 +140,7 @@ module.exports = JSON.stringify [
               "component": "release-it",
               "version": "2.4.0",
               "parent": {
-                "component": "@forthright\/vile",
+                "component": "vile",
                 "version": "0.9.11"
               },
               "level": 1
@@ -179,7 +179,7 @@ module.exports = JSON.stringify [
               "component": "doxme",
               "version": "1.8.2",
               "parent": {
-                "component": "@forthright\/vile",
+                "component": "vile",
                 "version": "0.9.11"
               },
               "level": 1
@@ -212,7 +212,7 @@ module.exports = JSON.stringify [
           "component": "dox",
           "version": "0.6.1",
           "parent": {
-            "component": "@forthright\/vile",
+            "component": "vile",
             "version": "0.9.11"
           },
           "level": 1
@@ -244,7 +244,7 @@ module.exports = JSON.stringify [
             "component": "repo-path-parse",
             "version": "1.0.1",
             "parent": {
-              "component": "@forthright\/vile",
+              "component": "vile",
               "version": "0.9.11"
             },
             "level": 1
@@ -281,7 +281,7 @@ module.exports = JSON.stringify [
               "component": "constable",
               "version": "0.0.4",
               "parent": {
-                "component": "@forthright\/vile-constable",
+                "component": "vile-constable",
                 "version": "0.1.10",
                 "parent": {
                   "component": "brentlintner.ca",

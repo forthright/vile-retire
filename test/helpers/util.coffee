@@ -50,7 +50,7 @@ issues = [
     path: "package.json",
     message: "(marked@0.3.5) Cross-Site Scripting (XSS) Due" +
       " To Sanitization Bypass Using HTML Entities (severity: medium) " +
-      "(@forthright/vile@0.9.11 > release-it@2.4.0 > " +
+      "(vile@0.9.11 > release-it@2.4.0 > " +
       "repo-path-parse@1.0.1 > dox@0.6.1)" +
       " - " +
       "https://srcclr.com/security/" +
@@ -70,7 +70,7 @@ issues = [
     path: "package.json",
     message: "(marked@0.3.5) Cross-Site Scripting (XSS) Due" +
       " To Sanitization Bypass Using HTML Entities (severity: medium) " +
-      "(@forthright/vile@0.9.11 > doxme@1.8.2 > repo-path-parse@1.0.1 " +
+      "(vile@0.9.11 > doxme@1.8.2 > repo-path-parse@1.0.1 " +
       "> dox@0.6.1)" +
       " - " +
       "https://srcclr.com/security/" +
@@ -89,7 +89,7 @@ issues = [
   {
     path: "package.json",
     message: "(uglify-js@2.3.6) has known security vulnerabilities " +
-      "(brentlintner.ca@0.0.11 > @forthright/vile-constable@0.1.10 > " +
+      "(brentlintner.ca@0.0.11 > vile-constable@0.1.10 > " +
       "constable@0.0.4 > bower@1.3.12 > handlebars@2.0.0)" +
       " - https://github.com/mishoo/UglifyJS2/issues/751 - " +
       "https://github.com/tmcw/mdast-uglify-bug",
@@ -105,7 +105,7 @@ issues = [
   {
     path: "package.json",
     message: "(uglify-js@2.3.6) has known security vulnerabilities " +
-      "(brentlintner.ca@0.0.11 > @forthright/vile-constable@0.1.10 > " +
+      "(brentlintner.ca@0.0.11 > vile-constable@0.1.10 > " +
       "constable@0.0.4 > bower@1.3.12 > handlebars@2.0.0)" +
       " - https://nodesecurity.io/advisories/48",
     type: "security",
