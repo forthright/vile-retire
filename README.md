@@ -1,11 +1,11 @@
 # vile-retire [![circle ci build status](https://circleci.com/gh/forthright/vile-retire.svg?style=shield&circle-token=6be2dc62849170210b40aba8e999f825b0b99335)](https://circleci.com/gh/forthright/vile-retire) [![appveyor build status](https://ci.appveyor.com/api/projects/status/auqlywbel1fb2trx/branch/master?svg=true)](https://ci.appveyor.com/project/brentlintner/vile-retire/branch/master) [![score-badge](https://vile.io/api/v0/projects/vile-retire/badges/score?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-retire) [![security-badge](https://vile.io/api/v0/projects/vile-retire/badges/security?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-retire) [![coverage-badge](https://vile.io/api/v0/projects/vile-retire/badges/coverage?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-retire) [![dependency-badge](https://vile.io/api/v0/projects/vile-retire/badges/dependency?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-retire)
 
-A [vile](https://vile.io) plugin for [RetireJS](https://github.com/RetireJS/retire.js).
+A [Vile](https://vile.io) plugin for identifying vulnerabilities in your
+JavaScript libraries (via [RetireJS](https://github.com/RetireJS/retire.js)).
 
 ## Requirements
 
-- [nodejs](http://nodejs.org)
-- [npm](http://npmjs.org)
+- [Node.js](http://nodejs.org)
 
 ## Installation
 
@@ -60,7 +60,7 @@ Try the `--path|nodepath|jspath` config options, if need be.
 
 ## Versioning
 
-This project ascribes to [semantic versioning](http://semver.org).
+This project uses [Semver](http://semver.org).
 
 ## Licensing
 
@@ -87,8 +87,6 @@ Even if you are uncomfortable with code, an issue or question is welcome.
 
 ### Code Of Conduct
 
-This project ascribes to [contributor-covenant.org](http://contributor-covenant.org).
-
 By participating in this project you agree to our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ### Maintainers
@@ -102,10 +100,10 @@ a JSON CLI output that is currently used until a more ideal
 IPC option is implemented.
 
 - `bin` houses any shell based scripts
-- `src` is es6+ syntax compiled with [babel](https://babeljs.io)
+- `src` is es6+ syntax compiled with [Babel](https://babeljs.io)
 - `lib` generated js library
 
-## Hacking
+## Developing
 
     cd vile-retire
     npm install
