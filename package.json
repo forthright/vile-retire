@@ -1,6 +1,6 @@
 {
   "name": "vile-retire",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Identify vulnerabilities in your JavaScript libraries.",
   "main": "lib/index.js",
   "files": [
