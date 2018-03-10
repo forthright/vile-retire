@@ -63,28 +63,9 @@ let description = (vulnerability) =>
 let cve = (vulnerability) =>
   _.get(vulnerability, "identifiers.CVE")
 
-let full_dep_path_parent = (parent) => {
-  let sub_parent = _.get(parent, "parent")
-  let name = _.get(parent, "component")
-  let version = _.get(parent, "version")
-  if (sub_parent) {
-    return full_dep_path_parent(sub_parent) +
-      ` > ${name}@${version}`
-  } else {
-    return `${name}@${version}`
-  }
-}
-
-let dependency_path = (result) => {
-  let parent = _.get(result, "parent")
-  if (!parent) return
-  return full_dep_path_parent(parent)
-}
-
 let vile_issue = (vulnerability, result, file) => {
   let severity = _.get(vulnerability, "severity")
   let desc = description(vulnerability)
-  let dep_path = dependency_path(result)
   let name = result_name(result)
   let id = cve(vulnerability)
   let version = result_version(result)
@@ -97,8 +78,9 @@ let vile_issue = (vulnerability, result, file) => {
   if (id) msg += ` ${id}`
   msg += ` ${desc}`
   if (severity) msg += ` (severity: ${severity})`
-  if (dep_path) msg += ` (${dep_path})`
-  if (!_.isEmpty(advisories)) msg += ` - ${advisories.join(" - ")}`
+  if (!_.isEmpty(advisories) && advisories.length > 1) {
+    msg += ` \n\n${_.slice(advisories, 1).join("\n\n")}`
+  }
 
   let sig_postfix = id || advisory || desc
   let sig = `retire::${name}::${version}::${sig_postfix}`
@@ -132,31 +114,20 @@ let into_issues = (reports) => {
 
   let results = _.flatMap(reports, "results")
 
-  // [name][ver][level] = [ result, ... ]
+  // [name][ver] = [ result, ... ]
   let map_by_name = _.reduce(results, (map, result) => {
     let name = _.get(result, "component", "?")
     let ver = _.get(result, "version", "?")
 
     if (!map[name]) map[name] = {}
-    if (!map[name][ver]) map[name][ver] = {}
-
-    let level = _.get(result, "level", 1)
-    if (!map[name][ver][level]) map[name][ver][level] = []
-    map[name][ver][level].push(result)
+    if (!map[name][ver]) map[name][ver] = []
+    map[name][ver].push(result)
 
     return map
   }, {})
 
   _.each(map_by_name, (versions, name) => {
-    _.each(versions, (levels, version) => {
-      // if file type then no deepest level here- just assume 1
-      let deepest_level = _.reduce(levels, (deepest, result, level) => {
-        if (level > deepest) deepest = level
-        return deepest
-      }, 1)
-
-      let results = levels[deepest_level]
-
+    _.each(versions, (results, version) => {
       _.each(results, (result) => {
         let file = _.get(result, "file")
         let vulnerabilities = _.get(result, "vulnerabilities", [])
@@ -167,7 +138,7 @@ let into_issues = (reports) => {
     })
   })
 
-  // HACK: noticed odd dupe data with retire cli- this ensures no true dupes
+  // HACK: noticed odd dupe data with retire cli? this ensures no true dupes
   return _.uniqBy(issues, (issue) => issue.message + issue.signature)
 }
 
