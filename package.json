@@ -1,5 +1,5 @@
 {
-  "name": "vile-retire",
+  "name": "@forthright/ferret-retire",
   "version": "0.1.6",
   "description": "Identify vulnerabilities in your JavaScript libraries.",
   "main": "lib/index.js",
@@ -11,12 +11,12 @@
   "author": "Brent Lintner <brent.lintner@gmail.com>",
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/forthright/vile-retire/issues"
+    "url": "https://github.com/forthright/ferret-retire/issues"
   },
-  "homepage": "https://github.com/forthright/vile-retire",
+  "homepage": "https://github.com/forthright/ferret-retire",
   "repository": {
     "type": "git",
-    "url": "https://github.com/forthright/vile-retire.git"
+    "url": "https://github.com/forthright/ferret-retire.git"
   },
   "scripts": {
     "babel": "babel",
@@ -28,11 +28,11 @@
     "lint-cov": "node bin/lint-cov",
     "test": "node bin/test",
     "test-cov": "node bin/test-cov",
-    "vile": "vile a -u -x src:lib -n",
+    "ferret": "ferret a -u -x src:lib -n",
     "release-it": "release-it"
   },
   "keywords": [
-    "vile",
+    "ferret",
     "retire",
     "retirejs",
     "security"
@@ -53,21 +53,10 @@
     "release-it": "^2.8.0",
     "shelljs": "^0.7.8",
     "sinon": "^3.0.0",
-    "sinon-chai": "^2.11.0",
-    "vile": "^0.19.0",
-    "vile-coffeelint": "^0.1.16",
-    "vile-comment": "^0.1.19",
-    "vile-coverage": "^0.3.0",
-    "vile-depcheck": "^0.1.13",
-    "vile-eclint": "^0.1.14",
-    "vile-eslint": "^0.1.14",
-    "vile-git": "^0.5.3",
-    "vile-ncu": "^0.3.0",
-    "vile-nsp": "^0.2.14",
-    "vile-stat": "^0.1.0"
+    "sinon-chai": "^2.11.0"
   },
   "peerDependencies": {
-    "vile": ">=0.15.0",
+    "@forthright/ferret": ">=0.19.3",
     "retire": "^1.6.0"
   }
 }
