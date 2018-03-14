@@ -1,6 +1,6 @@
 const _ = require("lodash")
 const fs = require("fs")
-const vile = require("vile")
+const ferret = require("@forthright/ferret")
 const Bluebird = require("bluebird")
 
 const RETIRE_BIN = "retire"
@@ -41,7 +41,7 @@ let retire_check = (plugin_config) => {
       ])
   }
 
-  return vile
+  return ferret
     .spawn(RETIRE_BIN, opts)
     .then(read_report)
 }
@@ -63,7 +63,7 @@ let description = (vulnerability) =>
 let cve = (vulnerability) =>
   _.get(vulnerability, "identifiers.CVE")
 
-let vile_issue = (vulnerability, result, file) => {
+let ferret_issue = (vulnerability, result, file) => {
   let severity = _.get(vulnerability, "severity")
   let desc = description(vulnerability)
   let name = result_name(result)
@@ -90,8 +90,8 @@ let vile_issue = (vulnerability, result, file) => {
     advisory: advisory
   }
 
-  return vile.issue({
-    type: vile.SEC,
+  return ferret.data({
+    type: ferret.SEC,
     path: sec_path(vulnerability, result),
     message: _.trim(msg),
     signature: sig,
@@ -132,7 +132,7 @@ let into_issues = (reports) => {
         let file = _.get(result, "file")
         let vulnerabilities = _.get(result, "vulnerabilities", [])
         _.each(vulnerabilities, (vulnerability) => {
-          issues.push(vile_issue(vulnerability, result, file))
+          issues.push(ferret_issue(vulnerability, result, file))
         })
       })
     })
@@ -142,10 +142,11 @@ let into_issues = (reports) => {
   return _.uniqBy(issues, (issue) => issue.message + issue.signature)
 }
 
-let punish = (plugin_data) =>
+let exec = (plugin_data) =>
   retire_check(plugin_data)
     .then(into_issues)
 
 module.exports = {
-  punish: punish
+  context: [ "node", "javascript" ],
+  exec: exec
 }
